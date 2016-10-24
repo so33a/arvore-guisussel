@@ -146,9 +146,76 @@ link rotR(ARVORE a, link h) {
 }
 
 #if 0
-void remover (ARVORE a, int key);
-void removerNo (ARVORE a, link node);
-void destroiArvore(ARVORE a);
+void remover (ARVORE a, int key){
+  if(a == NULL){
+    return 0;
+  }
+  
+  struct node* ant = NULL;
+  struct node* atual = a;
+  while (atual != NULL){
+    if(key == atual -> node.key){
+      if(atual == a){
+        a = removerNo(atual);
+      }else{
+        if(ant->right == atual){
+          ant->drightir = removerNo(atual)
+        }else{
+          ant->left = removerNo(atual) 
+        }
+        return 1;
+      }
+      ant = atual;
+      if(key > atual -> node.key){
+        atual = atual -> right;
+      }else{
+        atual = atual -> left;
+      }
+    }
+  }
+
+
+void removerNo (ARVORE a, link node){
+  struct node *node1, *node2;
+  if(node -> left == NULL){
+    node2 = node->right;
+    free(node);
+    return node2;
+  }
+  
+  node1 = node;
+  node2 = node->left;
+  while(node2->right != NULL){
+    node1 = node2;
+    node2 = node2 ->right;
+  }
+  
+  if(node1 != node){
+    node1->right = node2 -> left;
+    node2 -> left = node -> left;
+  }
+  node2->right = node -> right;
+  free(node);
+  return node2;
+}
+
+void libera_no(struct *node){
+  if(node == NULL){
+    return;
+  }
+  libera_no(node->left);
+  libera_no(node->right);
+  free(node);
+  node=NULL;
+}  
+
+void destroiArvore(ARVORE a){
+  if(a == NULL){
+    return;
+  }
+  libera_no(a);
+    free(a);
+}
 #endif 
 
 
