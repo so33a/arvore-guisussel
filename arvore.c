@@ -159,7 +159,7 @@ void remover (ARVORE a, int key){
         a = removerNo(atual);
       }else{
         if(ant->right == atual){
-          ant->drightir = removerNo(atual)
+          ant->right = removerNo(atual)
         }else{
           ant->left = removerNo(atual) 
         }
