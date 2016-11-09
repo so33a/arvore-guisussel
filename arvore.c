@@ -145,7 +145,7 @@ link rotR(ARVORE a, link h) {
   return x;
 }
 
-#if 0
+
 void remover (ARVORE a, int key){
   if(a == NULL){
     return 0;
@@ -216,6 +216,6 @@ void destroiArvore(ARVORE a){
   libera_no(a);
     free(a);
 }
-#endif 
+
 
 
